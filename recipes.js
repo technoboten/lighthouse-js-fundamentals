@@ -16,6 +16,10 @@ let recipes = [
 ];
 
 
+
+
+
+
 const chooseRecipe = (a, b, r) => {
   let count = r.length;
   let result = "";
@@ -28,17 +32,21 @@ for(let recipeIndex = 0; recipeIndex < count; recipeIndex++){
     if(recipe['ingredients'][ingredIndex] === a[ingredIndex]){
       result = recipe.name; 
      console.log(`bakery A got a match!`);
+  //maybe i should get bakery b here?
+  
     } else {
       result = "you can't make that recipe!";
     }
   }
 //check bakery b
 for(let ingredIndex = 0; ingredIndex < recipe['ingredients'].length; ingredIndex++){
-  // console.log(recipe['ingredients'][ingredIndex]);
-  if(recipe['ingredients'][ingredIndex] === b[ingredIndex]){
-    result = recipe.name; 
-   console.log(`you got a match!`);
-  }
+  console.log('my brain is melting!');
+  // let recipe = r[recipeIndex];
+  // // console.log(recipe['ingredients'][ingredIndex]);
+  // if(recipe['ingredients'][ingredIndex] === b[ingredIndex]){
+  //   result = recipe.name; 
+  //  console.log(`you got a match!`);
+  // }
 }
 // console.log(result);
 }
