@@ -1,62 +1,53 @@
-let bakeryA = ['saffron', 'eggs', 'tomato paste', 'coconut', 'custard'];
-let bakeryB = ['milk', 'butter', 'cream cheese'];
-let recipes = [
+bakeryA = ['potatoes', 'bay leaf', 'raisins'];
+bakeryB = ['red bean', 'dijon mustard', 'apples'];
+recipes = [
     {
-        name: 'Coconut Sponge Cake',
-        ingredients: ['coconut', 'cake base']
+        name: 'Potato Ganache',
+        ingredients: ['potatoes', 'chocolate']
     },
     {
-        name: 'Persian Cheesecake',
-        ingredients: ['saffron', 'cream cheese']
+        name: 'Sweet Fish',
+        ingredients: ['anchovies', 'honey']
     },
     {
-        name: 'Custard Surprise',
-        ingredients: ['custard', 'ground beef']
+        name: "Nima's Famous Dijon Raisins",
+        ingredients: ['dijon mustard', 'raisins']
     }
 ];
 
-
-
-
-
-
-const chooseRecipe = (a, b, r) => {
-  let count = r.length;
-  let result = "";
-//loop through recipes 
-for(let recipeIndex = 0; recipeIndex < count; recipeIndex++){
-  let recipe = r[recipeIndex];
-//check bakery A
-  for(let ingredIndex = 0; ingredIndex < recipe['ingredients'].length; ingredIndex++){
-    // console.log(recipe['ingredients'][ingredIndex]);
-    if(recipe['ingredients'][ingredIndex] === a[ingredIndex]){
-      result = recipe.name; 
-     console.log(`bakery A got a match!`);
-  //maybe i should get bakery b here?
-  
-    } else {
-      result = "you can't make that recipe!";
+const chooseRecipe = (bakeryA, bakeryB, recipes) => {
+  //find recipe 1
+  let recipe = {};
+  //loop through recipes
+    for(let recipeIndex = 0; recipeIndex < recipes.length; recipeIndex++){
+      console.log(`recipe loop ${recipeIndex}`);
+      let recipe = recipes[recipeIndex];
+      checkIngredients(recipe);
     }
-  }
-//check bakery b
-for(let ingredIndex = 0; ingredIndex < recipe['ingredients'].length; ingredIndex++){
-  console.log('my brain is melting!');
-  // let recipe = r[recipeIndex];
-  // // console.log(recipe['ingredients'][ingredIndex]);
-  // if(recipe['ingredients'][ingredIndex] === b[ingredIndex]){
-  //   result = recipe.name; 
-  //  console.log(`you got a match!`);
-  // }
-}
-// console.log(result);
-}
+    //checkIngredients(recipe)
 }
 
-  chooseRecipe(bakeryA, bakeryB, recipes);
+const checkIngredients = (recipe) => {
+  let inA = false;
+  let inB = false;
+  let ingredient = recipe['ingredients'][0];
+  console.log(`ingredient is ${ingredient}`);
+  //check ingredient against arrA 
+    for(let ingredientIndex = 0; ingredientIndex < 2; ingredientIndex++){
+      if(ingredient === bakeryA[ingredientIndex]){
+        console.log(`${ingredient} matches ${bakeryA[ingredientIndex]}`);
+        inA = true;
+      } else if (ingredient === bakeryB[ingredientIndex]){
+        console.log(`${ingredient} matches ${bakeryB[ingredientIndex]}`);
+      }
+      
+    }
+    
+  //if a match is found set inA to true
+    //else if no match, check against b
+      //if a match is found, set inB to true
+  // console.log(`${ingredient} in A: ${inA}`);
+  // console.log(`${ingredient} in B: ${inB}`);
+}
 
-//arr A loop -> when a match is found, add it to result and go to arrB
-//if no match is found in arrA, skip to the next recipe
-//if a match is found, check recipe against Arr B ** add name to result
-//if no match is found, skip to the next recipe
-// if a match is found, add it to result and return result
-
+chooseRecipe(bakeryA, bakeryB, recipes);
