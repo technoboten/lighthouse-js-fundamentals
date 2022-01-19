@@ -30,24 +30,26 @@ const chooseRecipe = (bakeryA, bakeryB, recipes) => {
 const checkIngredients = (recipe) => {
   let inA = false;
   let inB = false;
-  let ingredient = recipe['ingredients'][0];
-  console.log(`ingredient is ${ingredient}`);
-  //check ingredient against arrA 
     for(let ingredientIndex = 0; ingredientIndex < 2; ingredientIndex++){
+      let ingredient = recipe['ingredients'][ingredientIndex];
+      console.log(`ingredient is ${ingredient}`);
+  //check ingredient 1 
       if(ingredient === bakeryA[ingredientIndex]){
-        console.log(`${ingredient} matches ${bakeryA[ingredientIndex]}`);
+        // console.log(`${ingredient} matches ${bakeryA[ingredientIndex]}`);
         inA = true;
       } else if (ingredient === bakeryB[ingredientIndex]){
-        console.log(`${ingredient} matches ${bakeryB[ingredientIndex]}`);
-      }
-      
+        // console.log(`${ingredient} matches ${bakeryB[ingredientIndex]}`);
+        inB = true;
+      } 
+      //ingredient not found, move to the next recipe
+ 
+    //if inA and inB - you have a match!
+      console.log(`inA is ${inA}`);
+      console.log(`inB is ${inB}`);
     }
-    
-  //if a match is found set inA to true
-    //else if no match, check against b
-      //if a match is found, set inB to true
-  // console.log(`${ingredient} in A: ${inA}`);
-  // console.log(`${ingredient} in B: ${inB}`);
-}
+    }
+
+
+
 
 chooseRecipe(bakeryA, bakeryB, recipes);
