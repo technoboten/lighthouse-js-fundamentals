@@ -1,6 +1,7 @@
 const makeCase = (input, styles) => {
   let result = "";
   let style = "";
+  let sortedStyles = [];
 
   if(Array.isArray(styles)){
     // styles.forEach(el => console.log(`style is ${el}`));
@@ -8,28 +9,32 @@ const makeCase = (input, styles) => {
     //loop through stylesArray
     console.log("styles loop");
       //compare styles[stylesIdx] to casess
-      let sortedStyles = [];
       console.log(`style is: ${styles[stylesIdx]}`);
-      for(let caseIdx = 0; caseIdx < cases.length; caseIdx++){
-      console.log("cases loop");
+      let caseIdx = 0;
+      let count = 0;
+      while(caseIdx <= cases.length){
+    //loop should run while ??
         if(styles[stylesIdx] === cases[caseIdx]){
           console.log(`case is: ${cases[caseIdx]}`);
           console.log(`add to sortedStyles Array`);
           sortedStyles.push(styles[stylesIdx]);
+          caseIdx = cases.length+2;
         } else {
           console.log(`case is: ${cases[caseIdx]}`);
-          console.log(`not a match`);
+          console.log(`not a match, check the next case`);
         }
-      }
+        caseIdx++ 
+      } 
+
       console.log(sortedStyles);
-    }
+    }  
   } else {
     style = styles;
       //result = applyStyle(input, style)
     }
   } 
 
-  let cases = ["camel", "pascal", "snake", "kebab", "title"]
+  let cases = ["camel", "pascal", "snake", "kebab", "title", "vowel", "consonant", "upper", "lower"];
 
 
 // const checkStyle = (style) => {
